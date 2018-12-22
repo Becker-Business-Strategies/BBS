@@ -1,0 +1,79 @@
+<div class="container" fxLayout="column" fxLayoutAlign="start" fxLayoutGap="40px">
+  <div class="header">
+    Let's Connect.
+  </div>
+  <mat-divider></mat-divider>
+  <div fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="start" fxLayoutGap="40px">
+    <div class="contact-msg" fxFlex="50" fxLayoutGap="24px" *ngIf="messageSent == false">
+      <div class="bbs-title">
+        How may I help you?
+      </div>
+      <div class="bbs-subtitle">
+        Send a message and let me know what I can do for you.
+      </div>
+      <div class="bbs-msg" fxLayout="column" fxLayoutGap="20px" style="padding-left: 16px; text-decoration: none" *ngFor="let b of bbs">
+        <div>You can also reach me at: </div>
+        <a href="tel:{{b.phone}}"> <div fxLayoutGap="10px" fxLayout="row" fxLayoutAlign="start center"><i class="fa fa-phone"></i> <div>{{b.phone}}</div> </div></a>
+        <a href="mailto:{{b.email}}"><div fxLayoutGap="10px" fxLayout="row" fxLayoutAlign="start center"><i class="fa fa-mail-bulk"></i> <div>{{b.email}}</div> </div></a>
+        <a target="_blank" href="https://linkedin.com/in/stephenwbecker/"><div fxLayoutGap="10px" fxLayout="row" fxLayoutAlign="start center"><i class="fab fa-linkedin"></i> <div>{{b.name}}</div></div></a>
+
+      </div>
+    </div>
+    <div class="contact-form" fxFlex>
+      <ng-template [ngIf]="messageSent == false" [ngIfElse]="ifMessageSent">
+
+
+
+        <form #register (submit)="onRegisterSubmit(register)" class="example-form example-full-width">
+
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>First Name</mat-label>
+              <input matInput type="text" [(ngModel)]="name" [ngModelOptions]="{standalone: true}" placeholder="Name" required="required">
+              <mat-icon matPrefix class="form-icon">account_box</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Last Name</mat-label>
+              <input matInput type="text" [(ngModel)]="last"  [ngModelOptions]="{standalone: true}" placeholder="Last" required="required">
+              <mat-icon matPrefix class="form-icon">perm_identity</mat-icon>
+            </mat-form-field>
+
+          <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" [(ngModel)]="email" [ngModelOptions]="{standalone: true}" placeholder="example@domain.com" required="required">
+            <mat-icon matPrefix class="form-icon">alternate_email</mat-icon>
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width" appearance="outline">
+            <input matInput type="tel" pattern="[\+]\d{2}[\(]\d{2}[\)]\d{4}[\-]\d{4}" maxlength="10" [(ngModel)]="phone" [ngModelOptions]="{standalone: true}" placeholder="e.g. 3145869304" required="required">
+            <mat-label>Phone Number</mat-label>
+            <mat-icon matPrefix class="form-icon">phone</mat-icon>
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width" appearance="outline">
+            <textarea matInput #input type="text" maxlength="200" [(ngModel)]="message" [ngModelOptions]="{standalone: true}" placeholder="How can we help you?" rows="10" required="required"></textarea>
+            <mat-hint align="end">{{input.value?.length || 0}}/200</mat-hint>
+            <mat-icon matPrefix class="form-icon">mail</mat-icon>
+          </mat-form-field>
+
+          <div fxLayoutAlign="center center">
+            <button mat-raised-button type="submit" color="primary">Submit</button>
+          </div>
+
+        </form>
+
+      </ng-template>
+
+
+      <ng-template #ifMessageSent style="height: 100%" class="example-full-width">
+        <div fxLayoutAlign="center center" class="example-full-width" fxLayoutGap="20px" fxLayout="column">
+          <div class="bbs-title" fxLayoutAlign="center center"><i style="color: #17664b" class="far fa-check-circle fa-2x"></i> </div>
+          <div class="bbs-title" fxLayoutAlign="center center">Message Received!</div>
+          <div class="bbs-msg" fxLayoutAlign="center center">Thank you for reaching out! We will be in touch shortly.</div>
+        </div>
+
+      </ng-template>
+    </div>
+  </div>
+</div>
+

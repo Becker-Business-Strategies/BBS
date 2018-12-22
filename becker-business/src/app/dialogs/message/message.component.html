@@ -1,0 +1,21 @@
+<div fxLayoutGap="10px" fxLayout="column">
+  <div class="bbs-title">Message</div>
+  <mat-divider></mat-divider>
+  <div class="info">From: {{data.name}} {{data.last}}</div>
+  <mat-divider></mat-divider>
+  <div class="info" fxLayout="column" fxLayoutGap="10px">
+    <div fxLayoutGap="16px">Email: <a href="mailto:{{data.email}}">{{data.email}}</a></div>
+    <mat-divider></mat-divider>
+    <div fxLayoutGap="16px">Phone: <a href="tel:{{data.phone}}"> {{data.phone}}</a></div>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="info">Message: </div>
+  <div class="bbs-msg" style="margin-bottom: 15px; overflow: scroll; width: 100%; max-width: 500px; word-wrap: break-word;" fxLayout="column">
+    {{data.message}}
+  </div>
+<mat-divider></mat-divider>
+  <div class="bbs-actions" fxLayoutGap="24px" style="padding: 16px; margin: 0 !important;">
+    <a href="mailto:{{data.email}}"><button mat-stroked-button="bbs-action-stroked">Reply</button></a>
+    <button mat-raised-button class="bbs-action-raised" mat-dialog-close>Close</button>
+  </div>
+</div>

@@ -1,0 +1,177 @@
+<div class="home" fxLayout="column">
+
+  <!--SECTION 1: HERO-->
+  <section class="hero" id="hero" fxLayout="row" fxLayout.lt-md="column">
+
+    <!--SHOW IF WINDOW IS SMALLER THAN MEDIUM-->
+    <div class="hero-content" fxFlex="70" fxLayoutAlign="center center" fxHide fxShow.lt-md>
+      <div class="hero-msg-container" fxLayout="column" fxLayoutAlign="center center">
+        <div class="hero-msg" fxLayoutGap="30px"  fxLayoutAlign="center center" fxLayout="column" style="margin-top: 24px; width: 80%">
+          <div class="header" fxLayoutAlign="center center" style="color: white; font-weight: 300; border-left: 0 !important;"> Providing Strategic Consulting.</div>
+          <div class="bbs-msg" fxLayoutAlign="center center" style="color: white;"> Get your business to the next level.</div>
+
+          <div class="bbs-actions" fxLayout="column" fxLayoutGap="16px">
+            <button mat-raised-button routerLink="../about" class="bbs-action-raised">LEARN MORE</button>
+            <button mat-button style="color: #17664b;" routerLink="../contact">CONTACT</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!--HIDE IF WINDOW IS SMALLER THAN MEDIUM-->
+    <div class="hero-img" fxFlex="10" fxShow fxHide.lt-md>
+      <img height="500px" width="auto" src="../../../assets/images/consulting-above.jpg">
+    </div>
+    <!--SHOW IF WINDOW IS SMALLER THAN MEDIUM-->
+    <div class="parallax2"  fxHide fxShow.lt-md fxLayoutAlign="center center"></div>
+
+    <!--SHOW IF WINDOW IS LARGER THAN MEDIUM-->
+
+    <div class="hero-content" fxFlex="90" fxLayoutAlign="end center" fxShow fxHide.lt-md>
+      <div class="hero-msg-container" fxLayout="column" fxLayoutAlign="center end">
+        <div class="hero-msg" fxLayoutGap="20px" fxLayout="column" fxLayoutAlign="center end">
+        <div class="header" style="color: white; font-weight: 300; border-left: 0;">
+          Get your business to the next level.
+        </div>
+        <div class="hero-subtitle" >
+          I can become an integral part of your business development initiative or an extension of your current work.
+          We will decide together the level of involvement you want and need.
+        </div>
+          <div class="spacer"></div>
+        <div class="bbs-actions" fxLayout="row" fxLayoutAlign="end" fxLayoutGap="16px">
+          <button mat-button style="color: #17664b;" routerLink="../contact" fxHide.lt-sm>CONTACT</button>
+          <button mat-raised-button routerLink="../about" class="bbs-action-raised">LEARN MORE</button>
+
+        </div>
+      </div>
+
+      </div>
+    </div>
+  </section>
+  <!--SECTION 2: EXPERTISE-->
+  <section class="expertise" id="expertise" fxLayoutAlign="start" fxLayout="column" fxLayout.lt-md="column">
+    <div class="container" fxLayout="column">
+
+      <div class="header" fxLayoutAlign="center center" style="margin-bottom: 40px; border-left: 0;font-weight: 300;">Let me show you what I can do for your business</div>
+
+      <div class="expertise-msg" fxLayout="column" fxHide.lt-md style="margin-top: 20px;">
+
+        <div class="expertise-planks" fxFlex fxLayoutAlign="space-evenly center" fxLayout="row" fxLayoutGap="15px">
+          <mat-card class="plank mat-elevation-z0" fxLayout="row" fxLayoutAlign="center center" *ngFor="let plank of planks" (click)="showMessage(plank)">
+            {{plank.title}}
+          </mat-card>
+        </div>
+
+
+
+        <div class="expertise-description" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="30px">
+          <div class="expertise-banner">
+            <img height="300px" width="auto" src="{{plankimg}}">
+          </div>
+          <div class="bbs-msg">{{plankmsg}}</div>
+        </div>
+
+      </div>
+
+      <!--SHOW IN SMALL SCREENS-->
+      <div class="expertise-accordion" fxHide fxShow.lt-md *ngFor="let plank of planks" fxLayoutGap="2px">
+        <div>
+          <mat-accordion class="example-headers-align">
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-description>
+                  {{plank.title}}
+                  <mat-icon>{{plank.icon}}</mat-icon>
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              {{plank.msg}}
+            </mat-expansion-panel>
+          </mat-accordion>
+        </div>
+      </div>
+      </div>
+
+  </section>
+
+
+<!--SECTION 3:contact-->
+<section class="contact" id="contact" fxLayout="column" fxLayoutGap="36px">
+
+  <div class="container" fxLayout="column" fxLayoutAlign="start">
+    <div fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="start" fxLayoutGap="40px">
+      <div class="contact-msg" fxFlex="50" fxLayoutGap="24px" *ngIf="messageSent == false">
+        <div class="bbs-title" style="color: white;">
+          How may I help you?
+        </div>
+        <div class="bbs-subtitle" style="color:lightgray !important;">
+          Fill out the form and let me know what I can do for you.
+        </div>
+        <div class="bbs-msg" fxLayout="column" fxLayoutGap="20px" style="padding-left: 16px; color:lightgray; text-decoration: none" *ngFor="let b of bbs">
+          <div>You can also reach me at: </div>
+          <a href="tel:{{b.phone}}"> <div fxLayoutGap="10px" fxLayout="row" fxLayoutAlign="start center"><i class="fa fa-phone"></i> <div>{{b.phone}}</div> </div></a>
+          <a href="mailto:{{b.email}}"><div fxLayoutGap="10px" fxLayout="row" fxLayoutAlign="start center"><i class="fa fa-mail-bulk"></i> <div>{{b.email}}</div> </div></a>
+          <a target="_blank" href="https://linkedin.com/in/stephenwbecker/"><div fxLayoutGap="10px" fxLayout="row" fxLayoutAlign="start center"><i class="fab fa-linkedin"></i> <div>{{b.name}}</div></div></a>
+
+        </div>
+      </div>
+      <div class="contact-form" fxFlex>
+        <ng-template [ngIf]="messageSent == false" [ngIfElse]="ifMessageSent">
+
+
+
+          <form #register (submit)="onRegisterSubmit(register)" class="example-form example-full-width">
+
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>First Name</mat-label>
+              <input matInput type="text" [(ngModel)]="name" [ngModelOptions]="{standalone: true}" placeholder="Name" required="required">
+              <mat-icon matPrefix class="form-icon">account_box</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Last Name</mat-label>
+              <input matInput type="text" [(ngModel)]="last"  [ngModelOptions]="{standalone: true}" placeholder="Last" required="required">
+              <mat-icon matPrefix class="form-icon">perm_identity</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Email</mat-label>
+              <input matInput type="email" [(ngModel)]="email" [ngModelOptions]="{standalone: true}" placeholder="example@domain.com" required="required">
+              <mat-icon matPrefix class="form-icon">alternate_email</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+              <input matInput type="tel" pattern="[\+]\d{2}[\(]\d{2}[\)]\d{4}[\-]\d{4}" maxlength="10" [(ngModel)]="phone" [ngModelOptions]="{standalone: true}" placeholder="e.g. 3145869304" required="required">
+              <mat-label>Phone Number</mat-label>
+              <mat-icon matPrefix class="form-icon">phone</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+              <textarea matInput #input type="text" maxlength="200" [(ngModel)]="message" [ngModelOptions]="{standalone: true}" placeholder="How can we help you?" rows="10" required="required"></textarea>
+              <mat-hint align="end">{{input.value?.length || 0}}/200</mat-hint>
+              <mat-icon matPrefix class="form-icon">mail</mat-icon>
+            </mat-form-field>
+
+            <div fxLayoutAlign="center center" class="bbs-actions">
+              <button mat-raised-button  class="bbs-action-raised" style="width: 100%;" type="submit" color="primary">Submit</button>
+            </div>
+
+          </form>
+
+        </ng-template>
+
+
+        <ng-template #ifMessageSent style="height: 100%" class="example-full-width">
+          <div fxLayoutAlign="center center" class="example-full-width" fxLayoutGap="20px" fxLayout="column">
+            <div class="bbs-title" fxLayoutAlign="center center"><i style="color: white" class="far fa-check-circle fa-2x"></i> </div>
+            <div class="bbs-title" fxLayoutAlign="center center">Message Received!</div>
+            <div class="bbs-msg" fxLayoutAlign="center center">Thank you for reaching out! We will be in touch shortly.</div>
+          </div>
+
+        </ng-template>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+</div>

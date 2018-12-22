@@ -1,0 +1,61 @@
+<div class="container full-height" *ngIf="authService.loggedIn()" fxLayout="column" fxLayoutGap="32px">
+
+  <div class="header">
+    Profile
+  </div>
+  <mat-divider></mat-divider>
+  <div fxLayout="column" fxLayoutGap="16px">
+
+    <mat-card class="profile-action" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="16px" routerLink="../clients">
+      <i style="color: #17664b" class="fas fa-3x fa-users"></i>
+      <div class="bbs-subtitle" style="color: #2b2b2b;">CLIENT LIST </div>
+    </mat-card>
+
+      <mat-card class="profile-action" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="16px" (click)="changeUsername()">
+        <i style="color: #17664b" class="far fa-3x fa-user"></i>
+        <div class="bbs-subtitle" style="color: #2b2b2b;">CHANGE USERNAME</div>
+      </mat-card>
+
+      <div>
+        <form #username (submit)="updateUsername()" class="example-form" *ngIf="editUsername === true">
+          <div fxLayout="row" fxLayoutAlign="center center">
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Enter New Username</mat-label>
+              <input matInput type="text" [(ngModel)]="newUsername" [ngModelOptions]="{standalone: true}" placeholder="{{user.username}}" [disabled]="editUsername == false">
+            <!--<mat-hint>New Username</mat-hint>-->
+              <button class="bbs-action-stroked" *ngIf="saveUsername === true" mat-icon-button matSuffix type="submit">
+                <mat-icon>save</mat-icon>
+              </button>
+          </mat-form-field>
+        </div>
+      </form>
+      </div>
+
+    <!--change password-->
+
+    <mat-card class="profile-action" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="16px" (click)="changePassword()">
+    <i style="color: #17664b" class="fa fa-3x fa-lock"></i>
+    <div class="bbs-subtitle" style="color: #2b2b2b">CHANGE PASSWORD</div>
+  </mat-card>
+
+    <div>
+      <form #password (submit)="updatePassword(password)" fxLayout="column" class="example-form" *ngIf="editPassword === true">
+        <div fxLayout="column" fxLayoutAlign="center center">
+          <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Enter New Password</mat-label>
+            <input matInput type="password" [(ngModel)]="newPassword" [ngModelOptions]="{standalone: true}" placeholder="New Password" [disabled]="editPassword == false">
+          </mat-form-field>
+          <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Confirm New Password</mat-label>
+            <input matInput type="password" [(ngModel)]="verifyPassword" [ngModelOptions]="{standalone: true}" placeholder="Confirm New Password" [disabled]="editPassword == false">
+          </mat-form-field>
+          <div class="bbs-actions">
+          <button mat-raised-button class="bbs-action-raised" type="submit">Change Password</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</div>
+

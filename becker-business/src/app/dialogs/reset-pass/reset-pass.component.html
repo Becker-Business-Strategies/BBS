@@ -1,0 +1,46 @@
+
+<div mat-dialog-title class="bbs-line" fxLayout="row" style="margin-bottom: 16px">
+  <div fxFlex="90">Password Reset</div>
+  <div fxFlex="10" style="cursor:pointer;">
+    <mat-icon (click)="close()">clear</mat-icon>
+  </div>
+</div>
+
+<!--PASSWORD RESET-->
+<ng-template [ngIf]="sendReset == false" [ngIfElse]="ifResetSent">
+  <mat-dialog-content class="bbs-msg" style="margin: 24px">
+    <div>Enter email below to send password reset link:</div>
+    <form (submit)="sendEmail()">
+      <mat-form-field class="example-full-width" appearance="outline">
+        <input matInput type="email" fxLayoutAlign="center"
+               style="padding-left: 8px"
+               [(ngModel)]="mail"
+               name="email"
+               [formControl]="emailFormControl"
+               [errorStateMatcher]="matcher">
+        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error>
+        <mat-icon matPrefix class="form-icon">email</mat-icon>
+      </mat-form-field>
+    </form>
+  </mat-dialog-content>
+  <div mat-dialog-actions align="end" >
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button color="primary" type="submit" (click)="sendEmail()">SEND <mat-icon>send</mat-icon></button>
+  </div>
+</ng-template>
+
+
+<!--PASSWORD RESET CONFIRMATION-->
+<ng-template #ifResetSent>
+  <mat-dialog-content class="bbs-msg" style="margin-bottom: 16px">
+    Check your inbox for instructions.
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>OK!</button>
+  </mat-dialog-actions>
+</ng-template>

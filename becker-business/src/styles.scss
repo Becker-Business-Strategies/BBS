@@ -1,0 +1,115 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "palette";
+
+$fontFamily: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+$bbs-green: $color1;
+$bbs-dark: $color2;
+$bbs-white: $color3;
+$bbs-gold: $color4;
+$bbs-blue: $color5;
+body{
+  margin: 0;
+  text-decoration: none;
+}
+
+.full-height{
+  min-height: 100vh;
+}
+
+.header{
+  font-size: 44px;
+  line-height: 56px;
+  font-family: $fontFamily;
+  letter-spacing: -0.8px;
+  font-weight: 800;
+  margin-top: 40px;
+  padding-left: 24px;
+  border-left: 10px solid $color1;
+}
+
+.bbs-title, h1{
+    font-weight: 600;
+    font-family: $fontFamily;
+    color: #2b2b2b;
+    font-size: 32px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    margin-left: 16px;
+  }
+.bbs-subtitle, h2{
+  font-weight: 600;
+  font-family: $fontFamily;
+  color: $color1;
+  font-size: 18px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  margin-left: 16px;
+}
+
+.bbs-line, h3{
+  font-weight: 400;
+  font-family: $fontFamily;
+  color: $color2;
+  font-size: 16px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  margin-left: 16px;
+}
+.bbs-msg, h5, h6{
+  font-weight: lighter;
+  font-family: $fontFamily;
+  font-size: 16px;
+  line-height: 22px;
+  color: #4f5b66;
+}
+
+.container{
+  padding-top: 100px;
+  padding-bottom: 40px;
+  margin: auto;
+  width: 90%;
+
+}
+
+.spacer{
+  flex: 1 1 auto;
+}
+
+
+a{
+  text-decoration: none !important;
+}
+
+
+.example-form {
+  min-width: 150px;
+  width: 100%;
+}
+
+.example-full-width {
+   width: 100%;
+ }
+.example-half-width {
+  min-width: 150px;
+  width: 50%;
+}
+
+.bbs-actions{
+  width: 100%;
+  .bbs-action-raised{
+    background-color: $color1;
+    color: white;
+    font-family: $fontFamily;
+    border: none;
+  }
+  .bbs-action-stroked{
+    color: $color1;
+    border-color: $color1;
+  }
+
+}
+.alert-success, .alert-danger{
+  width: 90% !important;
+  margin: auto !important;
+}

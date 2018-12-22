@@ -1,0 +1,30 @@
+<div class="container" fxLayout="column" fxLayoutAlign="start" fxLayoutGap="40px">
+
+  <div class="header">
+    Why Steve Becker?
+  </div>
+
+  <mat-divider></mat-divider>
+
+
+  <div class="plank" *ngFor="let plank of planks"  fxLayout="row" fxLayout.lt-sm="column" fxLayoutGap="40px">
+
+    <div class="plank-img" fxFlex="50" fxHide.lt-md *ngIf="plank.number == 1 || plank.number == 3 || plank.number == 5">
+      <img height="300" width="auto" src="{{plank.img}}">
+    </div>
+    <div class="plank-content" fxLayout="column" fxFlex="50" fxFlex.lt-md="100" fxLayoutGap="20px" fxLayoutAlign="start" fxLayoutAlign.lt-md="center center">
+      <div class="bbs-title">{{plank.title}}</div>
+      <div class="plank-img" fxFlex="50" fxHide fxShow.lt-md>
+        <img height="auto" width="100%" src="{{plank.img}}">
+      </div>
+      <div class="bbs-msg">
+       {{plank.msg}}
+      </div>
+      <!--<div class="bbs-actions" fxLayoutAlign.lt-md="center center"><button mat-raised-button class="bbs-action-raised" routerLink="{{plank.buttonLink}}">Learn More</button> </div>-->
+    </div>
+    <div class="plank-img" fxFlex="50" fxHide.lt-md *ngIf="plank.number == 2 || plank.number == 4">
+      <img height="300" width="auto" src="{{plank.img}}">
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,16 @@
+
+<div mat-dialog-title class="bbs-line" fxLayout="row" style="margin-bottom: 16px">
+  <div fxFlex="90">Confirm</div>
+  <div fxFlex="10" style="cursor:pointer;">
+    <mat-icon (click)="close()">clear</mat-icon>
+  </div>
+</div>
+
+<mat-dialog-content class="bbs-msg" style="margin: 24px">
+  <div class="bbs-msg">Are you sure you want to delete? {{data._id}}</div>
+</mat-dialog-content>
+
+<div mat-dialog-actions align="end" >
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button color="warn" (click)="confirmDelete()">DELETE</button>
+</div>

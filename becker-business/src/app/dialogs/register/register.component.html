@@ -1,0 +1,20 @@
+<div class="container" fxLayout="column" fxLayoutAlign="center center">
+  <form #registerform class="example-form" (submit)="onRegisterSubmit(registerform)">
+
+    <div fxLayout="column"  fxLayoutAlign="center center">
+      <mat-form-field class="example-full-width" appearance="outline" fxLayoutGap="20px">
+        <input matInput type="text" [(ngModel)]="username" [ngModelOptions]="{standalone: true}"  placeholder="Username" required="required">
+        <mat-icon matPrefix>account_box</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="outline">
+        <input matInput type="password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}"placeholder="Password" required="required">
+        <mat-icon matPrefix>lock</mat-icon>
+      </mat-form-field>
+    </div>
+    <div fxLayoutAlign="center center">
+      <button color="primary" type="submit" mat-stroked-button>Register</button>
+    </div>
+  </form>
+
+</div>

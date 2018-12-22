@@ -1,0 +1,40 @@
+<mat-tab-group mat-stretch-tabs>
+  <mat-tab label="LOGIN">
+    <div class="login" fxLayout="column" fxLayoutAlign="center center" *ngIf="!authService.loggedIn()">
+      <form class="example-form" (submit)="onLoginSubmit()">
+
+        <div fxLayout="column"  fxLayoutAlign="center center">
+          <mat-form-field class="example-full-width" appearance="outline" fxLayoutGap="20px">
+            <input matInput type="text" [(ngModel)]="username" [ngModelOptions]="{standalone: true}"  placeholder="Username" required="required">
+            <mat-icon matPrefix>account_box</mat-icon>
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width" appearance="outline">
+            <input matInput [type]="typeChange" [(ngModel)]="password" [ngModelOptions]="{standalone: true}"placeholder="Password" required="required">
+            <mat-icon matPrefix>lock</mat-icon>
+            <button matSuffix
+                        mat-icon-button
+                        (click)="showPassword()">
+              <i *ngIf="show === false" class="fa fa-eye"></i>
+              <i *ngIf="show === true" class="fa fa-eye-slash"></i>
+            </button>
+          </mat-form-field>
+        </div>
+        <div fxLayoutAlign="center center">
+          <button color="primary" type="submit" mat-stroked-button>Log In</button>
+        </div>
+      </form>
+    </div>
+    <div *ngIf="authService.loggedIn()" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="20px">
+      <div style="padding: 10px">You are now logged in.</div>
+      <button class="example-full-width" mat-stroked-button mat-dialog-close>CLOSE</button>
+    </div>
+  </mat-tab>
+  <mat-tab label="REGISTER">
+    <app-register></app-register>
+  </mat-tab>
+</mat-tab-group>
+
+
+
+
