@@ -1433,7 +1433,7 @@ var StrategyComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container full-height\" *ngIf=\"authService.loggedIn()\" fxLayout=\"column\" fxLayoutGap=\"32px\">\n\n  <div class=\"header\">\n    Profile\n  </div>\n  <mat-divider></mat-divider>\n  <div fxLayout=\"column\" fxLayoutGap=\"16px\">\n\n    <mat-card class=\"profile-action\" fxLayout=\"column\" fxLayoutAlign=\"center center\" fxLayoutGap=\"16px\" routerLink=\"../clients\">\n      <i style=\"color: #17664b\" class=\"fas fa-3x fa-users\"></i>\n      <div class=\"bbs-subtitle\" style=\"color: #2b2b2b;\">CLIENT LIST </div>\n    </mat-card>\n\n      <mat-card class=\"profile-action\" fxLayout=\"column\" fxLayoutAlign=\"center center\" fxLayoutGap=\"16px\" (click)=\"changeUsername()\">\n        <i style=\"color: #17664b\" class=\"far fa-3x fa-user\"></i>\n        <div class=\"bbs-subtitle\" style=\"color: #2b2b2b;\">CHANGE USERNAME</div>\n      </mat-card>\n\n      <div>\n        <form #username (submit)=\"updateUsername()\" class=\"example-form\" *ngIf=\"editUsername === true\">\n          <div fxLayout=\"row\" fxLayoutAlign=\"center center\">\n            <mat-form-field class=\"example-full-width\" appearance=\"outline\">\n              <mat-label>Enter New Username</mat-label>\n              <input matInput type=\"text\" [(ngModel)]=\"newUsername\" [ngModelOptions]=\"{standalone: true}\" placeholder=\"{{user.username}}\" [disabled]=\"editUsername == false\">\n            <!--<mat-hint>New Username</mat-hint>-->\n              <button class=\"bbs-action-stroked\" *ngIf=\"saveUsername === true\" mat-icon-button matSuffix type=\"submit\">\n                <mat-icon>save</mat-icon>\n              </button>\n          </mat-form-field>\n        </div>\n      </form>\n      </div>\n\n    <!--change password-->\n\n    <mat-card class=\"profile-action\" fxLayout=\"column\" fxLayoutAlign=\"center center\" fxLayoutGap=\"16px\" (click)=\"changePassword()\">\n    <i style=\"color: #17664b\" class=\"fa fa-3x fa-lock\"></i>\n    <div class=\"bbs-subtitle\" style=\"color: #2b2b2b\">CHANGE PASSWORD</div>\n  </mat-card>\n\n    <div>\n      <form #password (submit)=\"updatePassword(password)\" fxLayout=\"column\" class=\"example-form\" *ngIf=\"editPassword === true\">\n        <div fxLayout=\"column\" fxLayoutAlign=\"center center\">\n          <mat-form-field class=\"example-full-width\" appearance=\"outline\">\n            <mat-label>Enter New Password</mat-label>\n            <input matInput type=\"password\" [(ngModel)]=\"newPassword\" [ngModelOptions]=\"{standalone: true}\" placeholder=\"New Password\" [disabled]=\"editPassword == false\">\n          </mat-form-field>\n          <mat-form-field class=\"example-full-width\" appearance=\"outline\">\n            <mat-label>Confirm New Password</mat-label>\n            <input matInput type=\"password\" [(ngModel)]=\"verifyPassword\" [ngModelOptions]=\"{standalone: true}\" placeholder=\"Confirm New Password\" [disabled]=\"editPassword == false\">\n          </mat-form-field>\n          <div class=\"bbs-actions\">\n          <button mat-raised-button class=\"bbs-action-raised\" type=\"submit\">Change Password</button>\n          </div>\n        </div>\n      </form>\n    </div>\n  </div>\n\n</div>\n\n"
+module.exports = "<div class=\"container full-height\" *ngIf=\"authService.loggedIn()\" fxLayout=\"column\" fxLayoutGap=\"32px\">\n\n  <div class=\"header\">\n    Profile\n  </div>\n  <mat-divider></mat-divider>\n  <div fxLayout=\"column\" fxLayoutGap=\"16px\">\n\n    <mat-card class=\"profile-action\" fxLayout=\"column\" fxLayoutAlign=\"center center\" fxLayoutGap=\"16px\" routerLink=\"../clients\">\n      <i style=\"color: #17664b\" class=\"fas fa-3x fa-users\"></i>\n      <div class=\"bbs-subtitle\" style=\"color: #2b2b2b;\">CLIENT LIST </div>\n    </mat-card>\n\n      <mat-card class=\"profile-action\" fxLayout=\"column\" fxLayoutAlign=\"center center\" fxLayoutGap=\"16px\" (click)=\"changeUsername()\">\n        <i style=\"color: #17664b\" class=\"far fa-3x fa-user\"></i>\n        <div class=\"bbs-subtitle\" style=\"color: #2b2b2b;\">CHANGE USERNAME</div>\n      </mat-card>\n\n      <div>\n        <form #username (submit)=\"updateUsername()\" class=\"example-form\" *ngIf=\"editUsername === true\">\n          <div fxLayout=\"column\" fxLayoutAlign=\"center center\">\n            <mat-form-field class=\"example-full-width\" appearance=\"outline\">\n              <mat-label>Enter New Username</mat-label>\n              <input matInput type=\"text\" [(ngModel)]=\"newUsername\" [ngModelOptions]=\"{standalone: true}\" placeholder=\"{{user.username}}\" [disabled]=\"editUsername == false\">\n            <!--<mat-hint>New Username</mat-hint>-->\n            </mat-form-field>\n            <div class=\"bbs-actions\">\n              <button mat-raised-button class=\"bbs-action-raised\" type=\"submit\">Change Username</button>\n            </div>\n\n        </div>\n      </form>\n      </div>\n\n    <!--change password-->\n\n    <mat-card class=\"profile-action\" fxLayout=\"column\" fxLayoutAlign=\"center center\" fxLayoutGap=\"16px\" (click)=\"changePassword()\">\n    <i style=\"color: #17664b\" class=\"fa fa-3x fa-lock\"></i>\n    <div class=\"bbs-subtitle\" style=\"color: #2b2b2b\">CHANGE PASSWORD</div>\n  </mat-card>\n\n    <div>\n      <form #password (submit)=\"updatePassword(password)\" fxLayout=\"column\" class=\"example-form\" *ngIf=\"editPassword === true\">\n        <div fxLayout=\"column\" fxLayoutAlign=\"center center\">\n          <mat-form-field class=\"example-full-width\" appearance=\"outline\">\n            <mat-label>Enter New Password</mat-label>\n            <input matInput type=\"password\" [(ngModel)]=\"newPassword\" [ngModelOptions]=\"{standalone: true}\" placeholder=\"New Password\" [disabled]=\"editPassword == false\">\n          </mat-form-field>\n          <mat-form-field class=\"example-full-width\" appearance=\"outline\">\n            <mat-label>Confirm New Password</mat-label>\n            <input matInput type=\"password\" [(ngModel)]=\"verifyPassword\" [ngModelOptions]=\"{standalone: true}\" placeholder=\"Confirm New Password\" [disabled]=\"editPassword == false\">\n          </mat-form-field>\n          <div class=\"bbs-actions\">\n          <button mat-raised-button class=\"bbs-action-raised\" type=\"submit\">Change Password</button>\n          </div>\n        </div>\n      </form>\n    </div>\n  </div>\n\n</div>\n\n"
 
 /***/ }),
 
@@ -1502,7 +1502,7 @@ var ProfileComponent = /** @class */ (function () {
             _this.username = _this.user.username;
             _this.password = _this.user.password;
             _this.id = profile.user._id;
-            console.log(_this.id);
+            // console.log(this.id);
         }, function (err) {
             console.log(err);
             return false;
@@ -1514,12 +1514,12 @@ var ProfileComponent = /** @class */ (function () {
         this.authService.updateUser(this.id, this.user)
             .subscribe(function (data) {
             if (data.success) {
-                _this.flash.show('Username has been updated!', { cssClass: 'alert-success' });
+                _this.snackBar.open('Username has been updated!', 'OK', { duration: 3000 });
                 _this.ngOnInit();
                 _this.changeUsername();
             }
             else {
-                _this.flash.show('SOMETHING WENT WRONG -- ' + data.msg, { cssClass: 'alert-danger' });
+                _this.snackBar.open('SOMETHING WENT WRONG -- ' + data.msg, 'OK', { duration: 3000 });
             }
         });
     };
@@ -1534,11 +1534,6 @@ var ProfileComponent = /** @class */ (function () {
     };
     ProfileComponent.prototype.updatePassword = function (password) {
         var _this = this;
-        console.log(this.user._id);
-        console.log(this.user);
-        console.log(this.newPassword);
-        console.log(this.verifyPassword);
-        console.log('THIS USER PASS: ' + this.password);
         var id = this.user._id;
         if (this.newPassword !== this.verifyPassword) {
             this.snackBar.open('Passwords do not match', '', { duration: 3000 });
@@ -1549,10 +1544,10 @@ var ProfileComponent = /** @class */ (function () {
                 username: this.username,
                 password: this.user.password
             };
-            console.log(user);
+            // console.log(user);
             this.authService.updatePassword(id, user).subscribe(function (data) {
                 if (data.success) {
-                    _this.snackBar.open('Password has been updated! Use new password at next log in', 'OK', { duration: 3000 });
+                    _this.snackBar.open('Password has been updated!', 'LOG IN', { duration: 3000 });
                     _this.changePassword();
                 }
                 else {
@@ -1692,7 +1687,7 @@ var ConfirmComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-tab-group mat-stretch-tabs>\n  <mat-tab label=\"LOGIN\">\n    <div class=\"login\" fxLayout=\"column\" fxLayoutAlign=\"center center\" *ngIf=\"!authService.loggedIn()\">\n      <form class=\"example-form\" (submit)=\"onLoginSubmit()\">\n\n        <div fxLayout=\"column\"  fxLayoutAlign=\"center center\">\n          <mat-form-field class=\"example-full-width\" appearance=\"outline\" fxLayoutGap=\"20px\">\n            <input matInput type=\"text\" [(ngModel)]=\"username\" [ngModelOptions]=\"{standalone: true}\"  placeholder=\"Username\" required=\"required\">\n            <mat-icon matPrefix>account_box</mat-icon>\n          </mat-form-field>\n\n          <mat-form-field class=\"example-full-width\" appearance=\"outline\">\n            <input matInput [type]=\"typeChange\" [(ngModel)]=\"password\" [ngModelOptions]=\"{standalone: true}\"placeholder=\"Password\" required=\"required\">\n            <mat-icon matPrefix>lock</mat-icon>\n            <button matSuffix\n                        mat-icon-button\n                        (click)=\"showPassword()\">\n              <i *ngIf=\"show === false\" class=\"fa fa-eye\"></i>\n              <i *ngIf=\"show === true\" class=\"fa fa-eye-slash\"></i>\n            </button>\n          </mat-form-field>\n        </div>\n        <div fxLayoutAlign=\"center center\">\n          <button color=\"primary\" type=\"submit\" mat-stroked-button>Log In</button>\n        </div>\n      </form>\n    </div>\n    <div *ngIf=\"authService.loggedIn()\" fxLayout=\"column\" fxLayoutAlign=\"center center\" fxLayoutGap=\"20px\">\n      <div style=\"padding: 10px\">You are now logged in.</div>\n      <button class=\"example-full-width\" mat-stroked-button mat-dialog-close>CLOSE</button>\n    </div>\n  </mat-tab>\n  <mat-tab label=\"REGISTER\">\n    <app-register></app-register>\n  </mat-tab>\n</mat-tab-group>\n\n\n\n\n"
+module.exports = "<mat-tab-group mat-stretch-tabs>\n  <mat-tab label=\"LOGIN\">\n    <div class=\"login\" fxLayout=\"column\" fxLayoutAlign=\"center center\" *ngIf=\"!authService.loggedIn()\">\n      <form class=\"example-form\" (submit)=\"onLoginSubmit()\">\n\n        <div fxLayout=\"column\"  fxLayoutAlign=\"center center\">\n          <mat-form-field class=\"example-full-width\" appearance=\"outline\" fxLayoutGap=\"20px\">\n            <input matInput type=\"text\" [(ngModel)]=\"username\" [ngModelOptions]=\"{standalone: true}\"  placeholder=\"Username\" required=\"required\">\n            <mat-icon matPrefix>account_box</mat-icon>\n          </mat-form-field>\n\n          <mat-form-field class=\"example-full-width\" appearance=\"outline\">\n            <input matInput [type]=\"typeChange\" [(ngModel)]=\"password\" [ngModelOptions]=\"{standalone: true}\"placeholder=\"Password\" required=\"required\">\n            <mat-icon matPrefix>lock</mat-icon>\n            <button matSuffix\n                        mat-icon-button\n                        (click)=\"showPassword()\">\n              <i *ngIf=\"show === false\" class=\"fa fa-eye\"></i>\n              <i *ngIf=\"show === true\" class=\"fa fa-eye-slash\"></i>\n            </button>\n          </mat-form-field>\n        </div>\n        <div fxLayoutAlign=\"center center\">\n          <button color=\"primary\" type=\"submit\" mat-stroked-button>Log In</button>\n        </div>\n      </form>\n    </div>\n    <div *ngIf=\"authService.loggedIn()\" fxLayout=\"column\" fxLayoutAlign=\"center center\" fxLayoutGap=\"20px\">\n      <div style=\"padding: 10px\">You are now logged in.</div>\n      <button class=\"example-full-width\" mat-stroked-button mat-dialog-close>CLOSE</button>\n    </div>\n  </mat-tab>\n  <!--<mat-tab label=\"REGISTER\">-->\n    <!--<app-register></app-register>-->\n  <!--</mat-tab>-->\n</mat-tab-group>\n\n\n\n\n"
 
 /***/ }),
 

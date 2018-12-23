@@ -18,15 +18,16 @@
 
       <div>
         <form #username (submit)="updateUsername()" class="example-form" *ngIf="editUsername === true">
-          <div fxLayout="row" fxLayoutAlign="center center">
+          <div fxLayout="column" fxLayoutAlign="center center">
             <mat-form-field class="example-full-width" appearance="outline">
               <mat-label>Enter New Username</mat-label>
               <input matInput type="text" [(ngModel)]="newUsername" [ngModelOptions]="{standalone: true}" placeholder="{{user.username}}" [disabled]="editUsername == false">
             <!--<mat-hint>New Username</mat-hint>-->
-              <button class="bbs-action-stroked" *ngIf="saveUsername === true" mat-icon-button matSuffix type="submit">
-                <mat-icon>save</mat-icon>
-              </button>
-          </mat-form-field>
+            </mat-form-field>
+            <div class="bbs-actions">
+              <button mat-raised-button class="bbs-action-raised" type="submit">Change Username</button>
+            </div>
+
         </div>
       </form>
       </div>
