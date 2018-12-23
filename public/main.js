@@ -1538,17 +1538,18 @@ var ProfileComponent = /** @class */ (function () {
         console.log(this.user);
         console.log(this.newPassword);
         console.log(this.verifyPassword);
+        console.log('THIS USER PASS: ' + this.password);
         var id = this.user._id;
-        var user = {
-            username: this.username,
-            newPassword: this.newPassword,
-            verifyPassword: this.verifyPassword
-        };
-        console.log(user);
         if (this.newPassword !== this.verifyPassword) {
             this.snackBar.open('Passwords do not match', '', { duration: 3000 });
         }
         else {
+            this.user.password = this.verifyPassword;
+            var user = {
+                username: this.username,
+                password: this.user.password
+            };
+            console.log(user);
             this.authService.updatePassword(id, user).subscribe(function (data) {
                 if (data.success) {
                     _this.snackBar.open('Password has been updated! Use new password at next log in', 'OK', { duration: 3000 });
