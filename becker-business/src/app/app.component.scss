@@ -67,21 +67,9 @@
   font-family: sans-serif !important;
 }
 
-  .all-wrap {
-    min-height: 100vh;
-  }
 
-  .app {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-  }
 
-  .content {
-    flex: 1;
-  }
-
-  .footer {
+.footer {
     background-color: #2b2b2b;
     height: auto;
     color: white;
@@ -91,13 +79,16 @@
       font-weight: 900;
       color: $bbs-white;
       padding: 24px;
-      a{text-decoration: underline;color: white}
+      a {
+        text-decoration: underline;
+        color: white
+      }
       text-transform: uppercase;
       .nav-item {
         padding: 0;
         margin: 0;
         list-style: none;
-        li, a{
+        li, a {
           text-transform: capitalize;
           text-decoration: none;
           font-weight: lighter;
@@ -107,34 +98,22 @@
 
         }
       }
-      .nav-contact{
+      .nav-contact {
         border: 3px solid #17664b;
         border-radius: 25px;
         padding: 5px 20px;
         color: #2b2b2b;
         width: 150px;
         text-decoration: none;
-        &:hover, &:active{
+        &:hover, &:active {
           background-color: #17664b;
           color: #FFFFFF;
           cursor: pointer;
         }
       }
     }
-
-    .bbs-subtitle {
-      font-family: "Open Sans", "Helvetica Neue", sans-serif;
-      font-size: 14px;
-      height: 100%;
-      color: white;
-      .mat-icon-button{
-        color: white;
-        &:disabled {
-          color: #4f5b66;
-        }
-      }
-    }
   }
+
   main {
     display: flex;
     flex-direction: column;
