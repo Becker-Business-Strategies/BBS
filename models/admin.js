@@ -14,9 +14,7 @@ const AdminSchema = new mongoose.Schema({
     },
     password: {
         type: String,
-    },
-    newPassword: String,
-    verifyPassword: String,
+    }
 });
 
 const Admin = module.exports = mongoose.model('Admin', AdminSchema);
@@ -36,7 +34,7 @@ module.exports.getUserByUsername = function(username, callback){
 //POST
 module.exports.addUser = function(newAdmin, callback){
     console.log('new USER: ' + newAdmin);
-    bcrypt.genSalt(10, (err, salt) => {
+    bcrypt.genSalt(12, (err, salt) => {
         bcrypt.hash(newAdmin.password, salt, (err, hash) => {
             if(err) throw err;
             newAdmin.password = hash;

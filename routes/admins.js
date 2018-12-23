@@ -12,10 +12,6 @@ router.post('/register', (req, res, next) => {
     let newAdmin = new Admin({
         username: req.body.username,
         password: req.body.password,
-        newPassword: req.body.newPassword,
-        verifyPassword: req.body.verifyPassword,
-        resetPasswordExpires: req.body.resetPasswordExpires,
-        resetPasswordToken: req.body.resetPasswordToken
     });
 
     Admin.addUser(newAdmin, (err, user) => {
@@ -115,9 +111,9 @@ router.put('/resetPassword/:id', function(req, res, next) {
     console.log('resetting ' + req.body.username +'`s password...');
 
     console.log('REQ PARAMS ID: ' + req.params.id);
-    console.log('REQ BODY new password: ' + req.body.verifyPassword);
+    console.log('REQ BODY new password: ' + req.body.password);
 
-    let password = req.body.verifyPassword;
+    let password = req.body.password;
     let user = req.body;
 
     bcrypt.genSalt(12, (err, salt) => {
