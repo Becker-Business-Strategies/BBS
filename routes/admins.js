@@ -112,42 +112,49 @@ router.put('/update/:id', function (req, res) {
 
 router.put('/resetPassword/:id', function(req, res, next) {
 
+    console.log('resetting ' + req.body.username +'`s password...');
+
     console.log('REQ PARAMS ID: ' + req.params.id);
-    console.log('REQ BODY: ' + req.body.verifyPassword);
+    console.log('REQ BODY new password: ' + req.body.verifyPassword);
 
-    let password = req.body.newPassword;
+    let password = req.body.verifyPassword;
+    let user = req.body;
 
-    bcrypt.genSalt(10, (err, salt) => {
+    bcrypt.genSalt(12, (err, salt) => {
+        if (err) throw err;
+
         bcrypt.hash(password, salt, (err, hash) => {
             if (err) throw err;
-            password = hash;
-            console.log(hash);
+            user.password = hash;
+            console.log('new hash: ' + hash);
+            Admin.findByIdAndUpdate(req.params.id, user, function (err, updatedUser) {
+                console.log('updating user: ' + user);
+                if(err){
+                    res.json({
+                        success: false,
+                        msg: 'ERROR: ' + err
+                    });
+                    console.log('ERROR ' + err + res)
+                }else{
+                    bcrypt.genSalt(10, (err, salt) => {
+                        bcrypt.hash(password, salt, (err, hash) => {
+                            if (err) throw err;
+                            password = hash;
+                            console.log(hash);
+                        });
+                    });
+                    res.json({
+                        success: true,
+                        data: updatedUser,
+                        msg: 'Success!'
+                    });
+                    console.log('Updated User: ' + updatedUser);
+                }
+            });
+
         });
     });
 
-    Admin.findByIdAndUpdate(req.params.id, req.body.newPassword, function (err, updatedUser) {
-        if(err){
-            res.json({
-                success: false,
-                msg: 'ERROR: ' + err
-            });
-            console.log('ERROR ' + err + res)
-        }else{
-            bcrypt.genSalt(10, (err, salt) => {
-                bcrypt.hash(password, salt, (err, hash) => {
-                    if (err) throw err;
-                    password = hash;
-                    console.log(hash);
-                });
-            });
-            res.json({
-                success: true,
-                data: updatedUser,
-                msg: 'Success!'
-            });
-            console.log('Updated User: ' + updatedUser);
-        }
-    });
 
 
 
