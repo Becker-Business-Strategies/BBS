@@ -14,7 +14,7 @@ const crypto = require('crypto');
 
 router.post('/newClient', function (req, res, next) {
 
-    let recipients = 'swbdesk@aol.com';
+    let recipients = 'swb@beckerbusinessstrategies.com';
     let subjectTime = new Date();
 
     let client = req.body;

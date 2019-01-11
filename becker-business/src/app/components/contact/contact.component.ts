@@ -15,7 +15,7 @@ export class ContactComponent implements OnInit {
     {
       phone: '314-304-8880',
       name: 'Stephen W. Becker',
-      email: 'swbdesk@aol.com'
+      email: 'swb@beckerbusinessstrategies.com'
     }
   ];
 
