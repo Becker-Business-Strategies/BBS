@@ -1,23 +1,7 @@
-.example-form {
-  min-width: 150px;
-  width: 100%;
-}
+@import "../../../styles";
 
-.example-full-width {
-  width: 100%;
-}
-
-
-.mat-raised-button{
-  width: 100%;
+.nav-bar{
+  background-color: #17664b;
   color: white;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-  border: none;
-}
-
-
-.mat-stroked-button{
-  width: 100%;
-  color: #17664b;
-  border-color: #17664b;
+  margin-bottom: 20px;
 }

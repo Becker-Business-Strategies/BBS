@@ -1,0 +1,13 @@
+@import '~@angular/material/theming';
+@include mat-core();
+
+$color1: #17664b;
+$color2: #2b2b2b;
+
+$primary: mat-palette($mat-gray, 900);
+$accent: mat-palette($mat-gray,900);
+
+$bbs-theme: mat-light-theme($primary, $accent);
+
+
+@include angular-material-theme($bbs-theme);

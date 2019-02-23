@@ -12,19 +12,15 @@ export class MailerService {
   sendEmail(user) {
     console.log('Sending Email: ');
     const data = {user};
-    console.log(user);
-    console.log('Recipient: ' + user);
 
 
 
 
 
     const body = JSON.stringify(data);
-    console.log('BODY: ' + body);
 
     const headers = new Headers();
 
-    console.log('headers: ' + headers);
     headers.append('Content-Type', 'application/json');
     // return this.http.post('http://localhost:3000/mailer/resetPassword', body,{ headers: headers})
     return this.http.post('mailer/resetPassword', body,{headers: headers})

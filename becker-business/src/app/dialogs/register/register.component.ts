@@ -30,7 +30,6 @@ export class RegisterComponent implements OnInit {
     this.authService.registerAdmin(admin).subscribe(data => {
       if(data.success) {
         this.flash.show('You are now registered and can log in!', {cssClass: 'alert-success'});
-        console.log(admin);
         this.router.navigate(['./home']);
       } else {
         this.flash.show(data.msg, {cssClass: 'alert-danger'});

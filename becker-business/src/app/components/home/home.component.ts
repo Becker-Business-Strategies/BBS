@@ -128,17 +128,14 @@ export class HomeComponent implements OnInit {
     this.as.registerUser(client).subscribe(data => {
       if (data.success) {
         this.snackBar.open('Thank you for reaching out. We will be in touch shortly!', '', {duration: 3000});
-        console.log(client);
 
         this.mailer.newClient(client).subscribe(mail => {
           if (mail.success) {
-            console.log('Message sending...');
           }
         });
 
       } else {
         this.snackBar.open('Something went wrong' , 'TRY AGAIN', {duration: 3000});
-        console.log('error: ');
       }
     });
 
@@ -155,7 +152,6 @@ export class HomeComponent implements OnInit {
   }
 
   showMessage(plank) {
-    console.log(plank);
     this.plankmsg = plank.msg;
     this.plankimg = plank.img;
 

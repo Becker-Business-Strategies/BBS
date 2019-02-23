@@ -27,8 +27,6 @@ export class LoginComponent implements OnInit {
 
   onLoginSubmit() {
 
-    console.log(this.username);
-    console.log(this.password);
 
     const user = {
       username: this.username,
@@ -44,20 +42,16 @@ export class LoginComponent implements OnInit {
       } else {
         this.snackBar.open(data.msg, 'close', {duration: 5000});
       }
-      console.log(data);
     });
   }
 
   showPassword() {
-    console.log(this.show, this.typeChange);
     this.show = !this.show;
-    console.log(this.show);
     if (this.show === false) {
       this.typeChange = 'password';
     } else {
       this.typeChange = 'text';
     }
-    console.log(this.typeChange);
   }
 
 }

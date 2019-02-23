@@ -80,7 +80,6 @@ export class AppComponent implements OnInit{
        this.password = this.user.password;
      },
      err => {
-       console.log(err);
        return false;
      });
  }

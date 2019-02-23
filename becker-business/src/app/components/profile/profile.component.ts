@@ -49,7 +49,6 @@ export class ProfileComponent implements OnInit {
         // console.log(this.id);
       },
       err => {
-        console.log(err);
         return false;
       });
   }
@@ -73,7 +72,6 @@ export class ProfileComponent implements OnInit {
   }
 
   sendEmail(user) {
-    console.log(this.user);
 
     this.dialog.open(ResetPassComponent,
       {

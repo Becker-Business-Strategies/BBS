@@ -65,13 +65,11 @@ export class ClientListComponent implements OnInit {
   }
 
   onRowClicked(row) {
-    console.log('Row clicked: ', row);
     this.ngOnInit();
   }
 
   openMessage(row) {
 
-    console.log(row.message);
     // console.log(user, user.name, user.last);
     const dialogRef = this.dialog.open(MessageComponent, {
       width: '85%',
