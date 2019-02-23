@@ -1,0 +1,62 @@
+  <mat-toolbar class="footer mat-elevation-z4" id="footer">
+    <div fxLayout="row" fxHide fxShow.lt-md style="width: 100%;">
+      <div class="bbs-msg">
+        &copy; 2018 Becker Business Strategies
+      </div>
+      <span class="spacer"></span>
+      <div fxLayoutAlign="center center">
+        <div class="bbs-msg">{{username}}</div>
+        <button mat-icon-button (click)="logIn()" style="color:#fff;">
+          <mat-icon style="color: white;">account_box</mat-icon>
+        </button>
+      </div>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-evenly" fxLayoutGap="30px" style="width: 100%" fxHide.lt-md>
+      <div class="nav-links" id="client-list" fxLayout="column" fxLayoutGap="10px" fxFlex="16">
+        <div class="logo"><img (click)="logIn()" height="40" width="auto" src="../assets/logos/blogo2.png"></div>
+      </div>
+      <div class="nav-links" id="home" fxLayout="column" fxLayoutGap="10px" fxFlex="16">
+        <div><a routerLink="home">Home</a></div>
+        <ul class="nav-item" *ngIf="authService?.loggedIn()">
+          <li><a routerLink="clients"> Client List</a></li>
+        </ul>
+
+      </div>
+      <div class="nav-links" id="about" fxLayoutAlign="center" fxLayout="column" fxLayoutGap="10px" fxFlex="16">
+        <div><a routerLink="about">About</a></div>
+        <div>
+          <ul class="nav-item" *ngFor="let about of abouts">
+            <li><a routerLink="{{about.link}}">{{about.name}}</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="nav-links" id="expertise" fxLayoutAlign="center" fxLayout="column" fxLayoutGap="10px" fxFlex="16">
+        <div><a routerLink="expertise">Expertise</a></div>
+        <div>
+          <ul class="nav-item" *ngFor="let expertise of expertises">
+            <li><a routerLink="{{expertise.link}}">{{expertise.name}}</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="nav-links" id="contact" fxLayout="column" fxLayoutGap="10px" fxFlex="16">
+        <div><a routerLink="contact">Contact</a></div>
+        <div class="nav-item">
+          <ul class="nav-item">
+            <li><a href="mailto:swb@beckerbusinessstrategies.com"
+                   style="text-transform: lowercase; text-decoration: none">swb@beckerbusinessstrategies.com</a></li>
+          </ul>
+        </div>
+      </div>
+      <span class="spacer"></span>
+      <div class="nav-links" id="social" fxLayoutAlign="space-between end" fxLayout="column" fxLayoutGap="10px"
+           fxFlex="16">
+        <div class="nav-item"><a href="https://www.linkedin.com/in/stephenwbecker/"> <i
+          class="fab fa-linkedin fa-2x"></i></a></div>
+        <div class="spacer"></div>
+        <div class="nav-item">
+          &copy; 2018 Becker Business Strategies
+        </div>
+      </div>
+
+    </div>
+  </mat-toolbar>

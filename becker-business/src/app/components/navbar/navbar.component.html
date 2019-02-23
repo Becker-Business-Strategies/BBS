@@ -1,0 +1,95 @@
+<mat-menu #usermenu="matMenu" class="menu" [overlapTrigger]="false" yPosition="below"
+          style="background-color: #2b2b2b;">
+  <div mat-menu-item="">{{username}}</div>
+  <button mat-menu-item routerLink="profile">
+    <mat-icon class="fa fa-user"></mat-icon>
+    Profile
+  </button>
+  <button mat-menu-item (click)="onLogoutClick()">
+    <mat-icon><i class="fa fa-sign-out-alt"></i></mat-icon>
+    Sign Out
+  </button>
+</mat-menu>
+
+<mat-sidenav-container>
+  <mat-toolbar class="nav-bar mat-elevation-z6" color="primary" fxLayoutAlign="space-evenly center">
+    <mat-toolbar-row fxLayout="row" fxLayoutAlign="space-evenly center" fxLayoutGap="5px">
+      <!--MENU BURGER APPEARS ON MOBILE-->
+      <div class="sidenav-icon" fxShow.lt-md="true" fxHide fxLayoutAlign="center center">
+        <button mat-icon-button (click)="sidenav.toggle()">
+          <mat-icon style="color:#2b2b2b;">menu</mat-icon>
+        </button>
+      </div>
+      <span class="spacer" fxShow.lt-md="true" fxHide></span>
+      <!--LOGO-->
+      <div class="logo" fxLayoutAlign="center center" fxLayout="row" fxLayoutGap="16px" routerLink="home">
+        <div fxHide.lt-md>
+          <img height="40px" width="auto" src="../assets/logos/blogo2.png">
+        </div>
+        <div>
+          <img height="auto" width="200px" width.lt-md="100px" src="../assets/logos/bbs-words.png">
+        </div>
+      </div>
+
+      <div class="spacer" fxFlex></div>
+
+
+      <!--NAV LINKS-->
+      <div class="nav-links" fxLayout="row" fxFlex fxHide.lt-md="true" fxLayoutAlign="space-evenly center"
+           fxLayoutGap="20px">
+        <a routerLink="clients" *ngIf="authService?.loggedIn()">
+          <div class="nav-item" fxLayout="row" fxLayoutGap="5px">
+            Client List
+          </div>
+        </a>
+        <a routerLink="home">
+          <div class="nav-item">
+            Home
+          </div>
+        </a>
+        <a routerLink="about">
+          <div class="nav-item">
+            Background
+          </div>
+        </a>
+        <a routerLink="expertise">
+          <div class="nav-item" fxLayoutAlign="center center">
+            Expertise
+            <!--<mat-icon [matMenuTriggerFor]="menu">keyboard_arrow_down</mat-icon>-->
+          </div>
+        </a>
+        <a routerLink="contact">
+          <div class="nav-contact" fxLayoutAlign="center center">
+            Contact
+          </div>
+        </a>
+      </div>
+
+      <!--IF LOGGED IN SHOWS ADMIN ICON-->
+      <div *ngIf="authService?.loggedIn()" fxLayoutAlign="center center" fxLayoutGap="20px"
+           [matMenuTriggerFor]="usermenu" class="admin">
+        <mat-icon style="color: #17664b; cursor: pointer;">supervised_user_circle</mat-icon>
+      </div>
+
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <mat-sidenav #sidenav mode="over" role="navigation" fixedInViewport="true">
+    <mat-list fxLayout="column" fxLayoutGap="20px" fxLayoutAlign="center start">
+      <mat-list-item><span class="spacer"></span>
+        <button mat-icon-button (click)="sidenav.close()">
+          <mat-icon class="whitecon">clear</mat-icon>
+        </button>
+      </mat-list-item>
+      <mat-list-item routerLink="home" (click)="sidenav.close()"> Home</mat-list-item>
+      <mat-list-item routerLink="about" (click)="sidenav.close()">Background</mat-list-item>
+      <mat-list-item routerLink="expertise" (click)="sidenav.close()"> Expertise</mat-list-item>
+      <mat-list-item routerLink="contact" (click)="sidenav.close()"> Contact Us</mat-list-item>
+      <mat-list-item routerLink="clients" *ngIf="authService?.loggedIn()" (click)="sidenav.close()">
+        <mat-icon style="color: #17664b; cursor: pointer;margin-right: 16px">supervised_user_circle</mat-icon>
+        Client List
+      </mat-list-item>
+    </mat-list>
+  </mat-sidenav>
+</mat-sidenav-container>
+
+

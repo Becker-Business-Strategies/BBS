@@ -55,6 +55,8 @@ import {ConfirmComponent} from 'src/app/dialogs/confirm/confirm.component';
 import {MailerService} from './services/mailer.service';
 import { ResetPassComponent } from './dialogs/reset-pass/reset-pass.component';
 import {FlashMessagesModule, FlashMessagesService} from 'angular2-flash-messages';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 @NgModule({
@@ -76,6 +78,8 @@ import {FlashMessagesModule, FlashMessagesService} from 'angular2-flash-messages
     MessageComponent,
     ConfirmComponent,
     ResetPassComponent,
+    NavbarComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

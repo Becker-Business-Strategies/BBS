@@ -4,7 +4,6 @@ import {MailerService} from '../../services/mailer.service';
 import {ValidateService} from '../../services/validate.service';
 import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {AuthService} from "../../services/auth.service";
-import {message} from "aws-sdk/clients/sns";
 
 
 /** Error when invalid control is dirty, touched, or submitted. */
